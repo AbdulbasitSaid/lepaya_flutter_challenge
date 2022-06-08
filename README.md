@@ -49,7 +49,7 @@ Clicking on a card should `open the url` of the post.
 
 When you are happy with the UI, create another MR that targets MR #1.
 
-Please do follow our [Figma File](https://www.figma.com/file/DiuhrhLWpujCsdbETxNfPR/Flutter-Assignment?node-id=6%3A345) as it contains the specific spacings, colors and fonts that you should use. The image bellow is just an example.
+Please do follow our [Figma File](https://www.figma.com/file/I24HNkA9NfRVjObQxMVYMi/Flutter-assignment-v2?node-id=0%3A1) as it contains the specific spacings, colors and fonts that you should use. The image bellow is just an example.
 
 
 <img src="./expected_result.png" width="320">
