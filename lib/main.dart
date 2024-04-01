@@ -1,36 +1,19 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+import 'package:flutter/services.dart';
+import 'package:flutter_assignment/app_bloc_observer.dart';
+import 'package:flutter_assignment/application_layer/app.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'di/get_it.dart' as get_it;
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Lepaya Assignment',
-      theme: ThemeData(
-        primarySwatch: Colors.indigo,
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Lepaya Assignment'),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            children: const [
-              Text('Hey there! Welcome to the Lepaya Flutter assignment.'),
-              SizedBox(height: 16),
-              Text(
-                'Check the `readme` of this repository for the instructions.',
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
+  unawaited(
+      SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]));
+  unawaited(get_it.init());
+
+  BlocOverrides.runZoned(() => runApp(App()), blocObserver: AppBlocObserver());
 }
